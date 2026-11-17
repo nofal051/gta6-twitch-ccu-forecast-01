@@ -55,4 +55,27 @@
 - No grade-local exists for this competition (kit: server grades only).
 
 ## ~01:35 WIB — commit + check
-- (commit sha + check result recorded below after running)
+- Commit 1 f31193fbf6ee087475d501b774fca65fd941b190 (entry + LICENSE + README +
+  owner.json + BUILD_LOG). Commit 2 d34d6dc6cada9dd026295e2a4d60ed1d522c95f0
+  removed an accidentally committed __pycache__/main.cpython-312.pyc + .gitignore.
+- `makefun check` (no transcripts yet): 3 passed (competition_open, snapshot,
+  entrypoint), 2 failed — license_osi (LICENSE lacked the SPDX-License-Identifier
+  line; fixed by adding `SPDX-License-Identifier: MIT` as line 1) and
+  transcripts_present (expected: bundle is the parent's step after this run).
+  13 skipped, 5 at-submission (repo_public, repo_owner, repo_created_after_open,
+  commit_in_repo, duplicate_snapshot — all decided at submission; owner.json is
+  committed, which covers repo_owner).
+- Re-check after SPDX fix: (result recorded in final commit message / report).
+
+## Status for parent (NOT submitted)
+- Entry complete, verified, committed. DO NOT SUBMIT yet: needs (1) public GitHub
+  repo created after 2026-11-17T06:00Z + push (gh not logged in — user-only),
+  (2) transcript bundle via `makefun bundle` (parent step; needs --muse-usage
+  rows from muse.db after this run ends + --system-prompt file + prompt file),
+  (3) `makefun check --transcripts <bundle>` to pass, (4) user 'gas' + approval
+  card for the authenticated submit, and note the @noval-amir connect is broken
+  so submission would go under rapid-badger-43 unless the user approves otherwise.
+- Known gap: no `makefun init` anchor (approval timed out, not retried) →
+  thinking_fresh will skip as a note, not a rejection. The repo history starts
+  with a plain local commit, not the drand anchor commit init would make.
+- Deadline 2026-11-19T01:00:00Z (08:00 WIB 19 Nov). ~6.5 h left at ~01:35 WIB.
